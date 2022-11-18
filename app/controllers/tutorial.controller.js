@@ -5,7 +5,7 @@ exports.create = (req, res) => {
   // Validate request
   if (!req.body) {
     res.status(400).send({
-      message: "Content can not be empty!"
+      message: "El contenido no puede estar vacío!"
     });
   }
 
@@ -21,7 +21,7 @@ exports.create = (req, res) => {
     if (err)
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Tutorial."
+          err.message || "Ocurrió algún error al crear el Tutorial."
       });
     else res.send(data);
   });
@@ -35,7 +35,7 @@ exports.findAll = (req, res) => {
     if (err)
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving tutorials."
+          err.message || "Se produjo un error al recuperar los tutoriales."
       });
     else res.send(data);
   });
@@ -51,7 +51,7 @@ exports.findOne = (req, res) => {
         });
       } else {
         res.status(500).send({
-          message: "Error retrieving Tutorial with id " + req.params.id
+          message: "Error al recuperar Tutorial con id " + req.params.id
         });
       }
     } else res.send(data);
@@ -64,7 +64,7 @@ exports.findAllPublished = (req, res) => {
     if (err)
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving tutorials."
+          err.message || "Se produjo un error al recuperar los tutoriales."
       });
     else res.send(data);
   });
@@ -75,7 +75,7 @@ exports.update = (req, res) => {
   // Validate Request
   if (!req.body) {
     res.status(400).send({
-      message: "Content can not be empty!"
+      message: "El contenido no puede estar vacío!"
     });
   }
 
@@ -88,11 +88,11 @@ exports.update = (req, res) => {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
-            message: `Not found Tutorial with id ${req.params.id}.`
+            message: `Tutorial no encontrado con id ${req.params.id}.`
           });
         } else {
           res.status(500).send({
-            message: "Error updating Tutorial with id " + req.params.id
+            message: "Error al actualizar Tutorial con id " + req.params.id
           });
         }
       } else res.send(data);
@@ -106,11 +106,11 @@ exports.delete = (req, res) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found Tutorial with id ${req.params.id}.`
+          message: `Tutorial con id:${req.params.id} no encontrado .`
         });
       } else {
         res.status(500).send({
-          message: "Could not delete Tutorial with id " + req.params.id
+          message: "No se pudo eliminar Tutorial con id " + req.params.id
         });
       }
     } else res.send({ message: `Tutorial was deleted successfully!` });
@@ -123,8 +123,8 @@ exports.deleteAll = (req, res) => {
     if (err)
       res.status(500).send({
         message:
-          err.message || "Some error occurred while removing all tutorials."
+          err.message || "Se produjo un error al eliminar todos los tutoriales."
       });
-    else res.send({ message: `All Tutorials were deleted successfully!` });
+    else res.send({ message: `Todos los tutoriales se eliminaron con éxito!` });
   });
 };

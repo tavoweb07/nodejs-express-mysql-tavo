@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true })); /* bodyParser.urlencoded() is d
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Bienvenido a tu primera app con node js en BackEnd" });
 });
 
 require("./app/routes/tutorial.routes.js")(app);
@@ -26,5 +26,5 @@ require("./app/routes/tutorial.routes.js")(app);
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
+  console.log(`Server esta corriendo en el puerto ${PORT}.`);
 });
